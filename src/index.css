@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* ========== Tema Hotelus: oscuro + acentos azules ========== */
+@theme {
+  /* Fondos (PMS) */
+  --color-surface: #0f172a;           /* --pms-bg: 15 23 42 */
+  --color-surface-muted: #1e293b;    /* --pms-panel: 30 41 59 */
+  --color-surface-subtle: #334155;   /* --pms-border: 51 65 85 */
+
+  /* Acento azul – botones, links, destacados */
+  --color-primary: #3b82f6;           /* --pms-accent: 59 130 246 */
+  --color-primary-hover: #60a5fa;    /* --pms-accent-hover: 96 165 250 */
+  --color-on-primary: #ffffff;        /* texto sobre botón acento */
+
+  /* Bordes */
+  --color-border: #334155;           /* 51 65 85 */
+  --color-border-light: #475569;    /* slate-600, más sutil */
+
+  /* Texto sobre fondo oscuro */
+  --color-foreground: #f1f5f9;       /* slate-100 */
+  --color-foreground-secondary: #cbd5e1;  /* slate-300 */
+  --color-foreground-muted: #94a3b8;      /* slate-400 */
+  --color-foreground-muted-light: #64748b; /* slate-500 */
+
+  /* Semánticos (visibles en oscuro) */
+  --color-success: #34d399;
+  --color-success-muted: #064e3b;
+  --color-danger: #f87171;
+  --color-danger-muted: #7f1d1d;
+  --color-warning: #fbbf24;
+  --color-warning-muted: #78350f;
+  --color-info: #60a5fa;
+  --color-info-muted: #1e3a8a;
+}
+
+body {
+  @apply antialiased text-foreground bg-surface min-h-screen font-sans;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ══ Animaciones Hero ══ */
+@keyframes hero-gradient-shift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+@keyframes hero-glow-pulse {
+  0%, 100% { opacity: 0.8; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.08); }
+}
+@keyframes hero-orb-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(3%, -2%) scale(1.06); }
+  66% { transform: translate(-2%, 2%) scale(0.97); }
+}
+@keyframes hero-orb-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-4%, 1%) scale(1.09); }
+}
+@keyframes hero-orb-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(2%, 3%) scale(0.94); }
+  75% { transform: translate(-1%, -2%) scale(1.04); }
+}
+@keyframes hero-grid-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ══ Indicador live / dot pulse ══ */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+/* ══ Scroll indicator ══ */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+@keyframes scroll-dot {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(8px); opacity: 0; }
+  61% { transform: translateY(0); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ══ Ping (LiveDot en DashboardDemo) ══ */
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* ══ Shimmer (botones) ══ */
+@keyframes shimmer {
+  0% { transform: translateX(-110%) skewX(-20deg); }
+  100% { transform: translateX(110%) skewX(-20deg); }
+}
+
+/* ══ Fade-up (scroll reveal genérico) ══ */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-animated {
+    animation: none !important;
+  }
+}
+
+/* Inputs y selects en paneles oscuros (para uso en app Hotelus) */
+.bg-surface-muted input:not([type="submit"]):not([type="button"]),
+.bg-surface-muted select,
+.bg-surface-muted textarea,
+.bg-surface-subtle input:not([type="submit"]):not([type="button"]),
+.bg-surface-subtle select,
+.bg-surface-subtle textarea {
+  background-color: rgb(51 65 85);
+  border-color: rgb(71 85 105);
+  color: rgb(241 245 249);
+}
+.bg-surface-muted input::placeholder,
+.bg-surface-muted textarea::placeholder,
+.bg-surface-subtle input::placeholder,
+.bg-surface-subtle textarea::placeholder {
+  color: rgb(100 116 139);
+}
+.bg-surface-muted input:focus,
+.bg-surface-muted select:focus,
+.bg-surface-muted textarea:focus,
+.bg-surface-subtle input:focus,
+.bg-surface-subtle select:focus,
+.bg-surface-subtle textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(59 130 246 / 0.4);
+  border-color: rgb(59 130 246);
+}
+.bg-surface-muted select option,
+.bg-surface-subtle select option {
+  background-color: rgb(30 41 59);
+  color: rgb(241 245 249);
+}
