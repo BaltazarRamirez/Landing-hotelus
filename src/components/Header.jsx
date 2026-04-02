@@ -43,6 +43,20 @@ function Header() {
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg"
     >
       {/* Scroll progress bar */}
+      <div
+        aria-hidden
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          height: 2,
+          width: `${scrollProgress}%`,
+          background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4)',
+          transition: 'width 0.12s linear',
+          borderRadius: '0 2px 2px 0',
+          pointerEvents: 'none',
+        }}
+      />
 
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
@@ -72,7 +86,10 @@ function Header() {
                 className="group relative py-1 text-sm text-slate-400 hover:text-slate-100 transition-colors duration-200"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 rounded-full bg-linear-to-r from-blue-500 to-violet-500 group-hover:scale-x-100 transition-transform duration-300" />
+                <span
+                  className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 rounded-full group-hover:scale-x-100 transition-transform duration-300"
+                  style={{ background: 'linear-gradient(to right, #3b82f6, #8b5cf6)' }}
+                />
               </a>
             </li>
           ))}
@@ -86,12 +103,13 @@ function Header() {
           >
             <a
               href="#cta"
-              className="group relative overflow-hidden rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.45)]"
+              className="group relative rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.45)]"
             >
               <span className="relative z-10">Empezar gratis</span>
               <span
                 aria-hidden
-                className="absolute inset-0 translate-x-[-110%] skew-x-[-20deg] bg-white/10 transition-transform duration-500 group-hover:translate-x-[110%]"
+                className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 55%)' }}
               />
             </a>
           </li>
