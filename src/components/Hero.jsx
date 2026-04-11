@@ -342,18 +342,22 @@ function Hero() {
 
       {/* Scroll indicator */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        style={{ animation: "scroll-bounce 2.2s ease-in-out infinite" }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center px-4 pb-8 pt-8 sm:pb-10 sm:pt-10"
         aria-hidden
       >
-        <span className="text-[10px] uppercase tracking-widest text-slate-600">
-          Scroll
-        </span>
-        <div className="flex h-8 w-5 items-start justify-center rounded-full border border-slate-700/60 pt-1.5">
-          <div
-            className="h-1.5 w-1 rounded-full bg-slate-500"
-            style={{ animation: "scroll-dot 2.2s ease-in-out infinite" }}
-          />
+        <div
+          className="flex flex-col items-center gap-2.5"
+          style={{ animation: "scroll-bounce 2.2s ease-in-out infinite" }}
+        >
+          <span className="text-center text-[10px] uppercase tracking-widest text-slate-600">
+            Scroll
+          </span>
+          <div className="flex h-8 w-5 items-start justify-center rounded-full border border-slate-700/60 pt-1.5">
+            <div
+              className="h-1.5 w-1 rounded-full bg-slate-500"
+              style={{ animation: "scroll-dot 2.2s ease-in-out infinite" }}
+            />
+          </div>
         </div>
       </div>
     </section>
